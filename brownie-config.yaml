@@ -1,0 +1,26 @@
+dependencies:
+  # Adding github repos for chainlink contracts
+  # - <organization/repo>@<version> 
+  - smartcontractkit/chainlink-brownie-contracts@0.6.1
+  - OpenZeppelin/openzeppelin-contracts@4.8.2
+compiler:
+  solc:
+    version: 0.8.9
+    remappings:
+      - '@chainlink=smartcontractkit/chainlink-brownie-contracts@0.6.1'
+      - '@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.8.2'
+autofech_source: true
+dotenv: .env
+networks:
+  sepolia:
+    eth_usd_price_feed: '0x694AA1769357215DE4FAC081bf1f309aDC325306' # chainlink eth usd price feed contract
+    verify: True # verify contract yes
+  mainnet-fork-dev:
+    eth_usd_price_feed: '0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419' # chainlink eth usd price feed contract
+    verify: False # verify contract no cause it's a fork
+  development:
+    verify: False # verify contract no cause it's local test chain
+  ganache-local:
+    verify: False # verify contract no cause it's local test chain
+wallets:
+  from_key: ${PRIVATE_KEY} # Sepolia test account private key
