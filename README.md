@@ -1,10 +1,18 @@
 # freeCodeCamp Lesson 7: SmartContract Lottery
 
-Example README.md for projects
+My code base while running through Lesson 7 SmartContract Lottery code from freeCodeCamp
 
 ## Description
 
-My code base while running through Lesson 7 SmartContract Lottery code from freeCodeCamp
+1. Users can enter the lottery with ETH based on USD fee
+2. An admin will choose when the lottery is over
+3. The lottery will select a random winner
+
+How do we want to test?
+
+1. `mainnet-fork-dev`
+2. `development` with mocks
+3. `testnet`
 
 ### Built with
 

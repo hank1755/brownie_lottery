@@ -1,10 +1,10 @@
-from brownie import FundMe, MockV3Aggregator, config, network
+from brownie import Lottery, MockV3Aggregator, config, network
 from scripts.utilities import get_account, deploy_mocks, LOCAL_BLOCKCHAIN_ENVIRONMENTS
 
 
-def deploy_fund_me():
+def deploy_lottery():
     account = get_account()
-    # pass price feed address to our fundme contract
+    # pass price feed address to our contract
 
     # If working in dev or prd chain use sepolia for eth else deploy mocks
     if network.show_active() not in LOCAL_BLOCKCHAIN_ENVIRONMENTS:
@@ -18,7 +18,7 @@ def deploy_fund_me():
         ].address  # address of latest MockV3Aggregator deployed
         print(f"Mocks Deployed...")
 
-    fund_me = FundMe.deploy(
+    lottery = Lottery.deploy(
         price_feed_address,
         {"from": account},
         publish_source=config["networks"][network.show_active()].get(
@@ -26,9 +26,9 @@ def deploy_fund_me():
         ),  # .get() is better
     )
 
-    print(f"Contract deployed to {fund_me.address}")
-    return fund_me
+    print(f"Contract deployed to {lottery.address}")
+    return lottery
 
 
 def main():
-    deploy_fund_me()
+    deploy_lottery()
