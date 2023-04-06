@@ -13,14 +13,26 @@ autofech_source: true
 dotenv: .env
 networks:
   sepolia:
-    eth_usd_price_feed: '0x694AA1769357215DE4FAC081bf1f309aDC325306' # chainlink Sepolia price feed contract
-    verify: True # verify contract yes
+    vrf_coordinator: "0x8103B0A8A00be2DDC778e6e7eaa21791Cd364625"
+    eth_usd_price_feed: "0x694AA1769357215DE4FAC081bf1f309aDC325306"
+    link_token: "0x779877A7B0D9E8603169DdbD7836e478b4624789"
+    keyhash: "0x474e34a077df58807dbe9c96d3c009b23b3c6d0cce433e59bbf5b34f823bc56c"
+    fee: 5000000000000000
+    verify: True
   mainnet-fork-dev:
+    vrf_coordinator: "0x271682DEB8C4E0901D1a1550aD2e64D568E69909"
     eth_usd_price_feed: '0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419' # chainlink Mainnet price feed contract
+    link_token: "0x514910771AF9Ca656af840dff83E8264EcF986CA"
+    #keyhash: "0x474e34a077df58807dbe9c96d3c009b23b3c6d0cce433e59bbf5b34f823bc56c"
+    fee: 5000000000000000
     verify: False # verify contract no cause it's a fork
   development:
+    keyhash: "0x474e34a077df58807dbe9c96d3c009b23b3c6d0cce433e59bbf5b34f823bc56c"
+    fee: 5000000000000000
     verify: False # verify contract no cause it's local test chain
   ganache-local:
+    keyhash: "0x474e34a077df58807dbe9c96d3c009b23b3c6d0cce433e59bbf5b34f823bc56c"
+    fee: 5000000000000000
     verify: False # verify contract no cause it's local test chain
 wallets:
   from_key: ${PRIVATE_KEY} # Sepolia test account private key

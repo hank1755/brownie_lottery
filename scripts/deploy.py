@@ -26,7 +26,9 @@ def deploy_lottery():
         ),  # .get() is better
     )
 
-    print(f"Contract deployed to {lottery.address}")
+    print(f"Contract deployed to address: {lottery.address}")
+    print(f"Contract owner: {lottery.owner()}")
+    print(f"usdEntryFee: {lottery.getEntranceFee()}")
     return lottery
 
 
