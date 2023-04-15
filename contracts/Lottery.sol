@@ -41,9 +41,9 @@ contract Lottery is VRFConsumerBaseV2, Ownable {
     LinkTokenInterface LINKTOKEN;
 
     // Your subscription ID.
-    uint64 public s_subscriptionId;
-    uint256[] public s_randomWords;
-    uint256 public s_requestId;
+    //uint64 public s_subscriptionId;
+    //uint256[] public s_randomWords;
+    //uint256 public s_requestId;
 
     event requestRandomWords(uint256 requestId);
     event subscriptionCreation(uint64 subscriptionId);
